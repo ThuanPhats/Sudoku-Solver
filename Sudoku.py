@@ -32,7 +32,6 @@ entries = [[None for _ in range(9)] for _ in range(9)]
 for i in range(9):
     for j in range(9):
         e = tk.Entry(root, width=2, font=('Arial', 18), justify='center', bd=2)
-        # Tô màu cho từng vùng 3x3
         if ((i // 3 + j // 3) % 2 == 0):
             e.configure(bg='#D5F5E3')
         else:
