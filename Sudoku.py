@@ -1,7 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
 
-# --- Thuật toán giải Sudoku ---
 def is_valid(board, row, col, num):
     for i in range(9):
         if board[row][i] == num or board[i][col] == num:
@@ -26,11 +25,9 @@ def solve_sudoku(board):
                 return False
     return True
 
-# --- Giao diện Tkinter ---
 root = tk.Tk()
 root.title("Sudoku Solver")
 
-# Tạo lưới nhập dữ liệu
 entries = [[None for _ in range(9)] for _ in range(9)]
 for i in range(9):
     for j in range(9):
@@ -43,7 +40,6 @@ for i in range(9):
         e.grid(row=i, column=j, padx=1, pady=1)
         entries[i][j] = e
 
-# Lấy dữ liệu từ lưới nhập
 def get_board():
     board = []
     for i in range(9):
@@ -54,7 +50,6 @@ def get_board():
         board.append(row)
     return board
 
-# Hiển thị kết quả lên lưới
 def set_board(board):
     for i in range(9):
         for j in range(9):
@@ -62,7 +57,6 @@ def set_board(board):
             if board[i][j] != 0:
                 entries[i][j].insert(0, str(board[i][j]))
 
-# Nút giải
 def solve():
     board = get_board()
     if solve_sudoku(board):
@@ -71,7 +65,6 @@ def solve():
     else:
         messagebox.showwarning("Lỗi", "Không tìm được lời giải!")
 
-# Nút reset để xóa dữ liệu
 def reset():
     for i in range(9):
         for j in range(9):
